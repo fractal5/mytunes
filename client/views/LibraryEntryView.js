@@ -3,16 +3,18 @@ var LibraryEntryView = Backbone.View.extend({
 
   tagName: 'tr',
 
-  template: _.template('<td>(<%= artist %>)</td><td><%= title %></td>'),
+  template: _.template('<td>(<%= artist %>)</td><td><%= title %></td><td>Played: <%= numPlays %></td>'),
 
   events: {
     'click': function() {
       
-      // this.model.play();
 
       // TODO: figure out when to trigger the playing
       // when queue was empty; 
       this.model.enqueue();
+
+      // enabling below passes spec test but ruins functionality
+      // this.model.play();
     }
   },
 

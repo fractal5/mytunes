@@ -6,6 +6,7 @@
     <script src="bower_components/jquery/jquery.min.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/backbone/backbone.js"></script>
+    <script src="bower_components/Backbone.localStorage/backbone.localStorage-min.js"></script>
 
     <script src="data/data.js"></script>
 
@@ -22,17 +23,21 @@
     <script src="views/SongQueueEntryView.js"></script>
 
     <script>
-      // $(function(){
+      $(function(){
         // set up model objects
         var library = new Songs(songData);
+        
         var app = new AppModel({library: library});
+
+        //using local storage plugin
+        // var app = new AppModel({library: library, localStorage: new Backbone.localStorage("mytunes-app")} );
 
         // build a view for the top level of the whole app
         var appView = new AppView({model: app});
 
         // put the view onto the screen
         $('body').append(appView.render());
-      // });
+      });
     </script>
   </body>
 </html>
